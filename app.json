@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.okataku.app-clip-demo"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,40 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "react-native-app-clip",
+        {
+          "name": "App Clip Demo Clip"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "appclipdemoClip",
+                  "bundleIdentifier": "com.okataku.app-clip-demo.Clip",
+                  "entitlements": {
+                    "com.apple.developer.parent-application-identifiers": [
+                      "$(AppIdentifierPrefix)com.okataku.app-clip-demo"
+                    ],
+                    "com.apple.developer.on-demand-install-capable": true,
+                    "com.apple.developer.applesignin": [
+                      "Default"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "1ef16700-25e3-4e21-bbd2-69650a97f42c"
+      }
     }
   }
 }
